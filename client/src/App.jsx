@@ -3,7 +3,7 @@ import { Detail, Form, Lading, HomePage } from "./views";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://drivers-production.up.railway.app/";
 function App() {
   const location = useLocation();
 
