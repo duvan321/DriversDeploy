@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "../DetailPage/Detail.module.css";
-const URL = "http://localhost:3001/drivers/";
+const URL = "/drivers/";
 import axios from "axios";
 
 const Detail = () => {
