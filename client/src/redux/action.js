@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 export const getDrivers = () => {
   return async function (dispatch) {
-    const apiDrivers = await axios.get("/drivers");
+    const apiDrivers = await axios.get("http://localhost:3001/drivers");
     const drivers = apiDrivers.data;
 
     dispatch({ type: GET_DRIVERS, payload: drivers });
@@ -21,7 +21,7 @@ export const getDrivers = () => {
 export const getTeamsAll = () => {
   try {
     return async function (dispatch) {
-      const team = await axios.get("/teams");
+      const team = await axios.get("http://localhost:3001/teams");
       const obTeams = team.data;
       dispatch({
         type: GET_TEAMS,
@@ -36,7 +36,9 @@ export const getTeamsAll = () => {
 export const searchDrivers = (name) => {
   try {
     return async function (dispatch) {
-      const DriverName = await axios.get(`/drivers?name=${name}`);
+      const DriverName = await axios.get(
+        `http://localhost:3001/drivers?name=${name}`
+      );
       const drivers = DriverName.data;
       dispatch({ type: SEARCH_DRIVERS_SUCCESS, payload: drivers });
     };
@@ -49,7 +51,7 @@ export const posDrivers = (formData) => {
     try {
       console.log("Creando conductor...");
       // En lugar de enviar una solicitud POST vacía, envía los datos en el cuerpo de la solicitud
-      await axios.post("/drivers", formData);
+      await axios.post("http://localhost:3001/drivers", formData);
 
       alert("Conductor creado exitosamente:", formData);
     } catch (error) {
