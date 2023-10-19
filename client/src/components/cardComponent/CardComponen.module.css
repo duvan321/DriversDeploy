@@ -49,3 +49,10 @@ h5 {
   cursor: pointer;
   width: 300px;
 }
+@media (max-width: 768px) {
+  .boton {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+  }
+}

@@ -10,6 +10,7 @@ import {
   POSTDRIVERS,
 } from "./type";
 import axios from "axios";
+import Swal from "sweetalert2";
 export const getDrivers = () => {
   return async function (dispatch) {
     const apiDrivers = await axios.get("/drivers");
@@ -51,7 +52,7 @@ export const posDrivers = (formData) => {
       // En lugar de enviar una solicitud POST vacía, envía los datos en el cuerpo de la solicitud
       await axios.post("/drivers", formData);
 
-      alert("Conductor creado exitosamente:", formData);
+      Swal.fire({ title: "Exito", text: "Equipo creado", icon: "success" });
     } catch (error) {
       console.error("Error al crear el conductor:", error);
     }

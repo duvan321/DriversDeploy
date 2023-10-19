@@ -30,7 +30,6 @@ const SearchBar = () => {
           </option>
         ))}
       </select>
-
       <input
         className={stayle.input}
         type="text"

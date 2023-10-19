@@ -1,51 +1,102 @@
-.mainNavbar {
+nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 25px;
-  background-color: rgb(28, 30, 47);
-  position: relative;
-}
-.button1 {
-  background-color: rgb(45, 48, 67);
-  border-radius: 7px;
-  font-size: 1rem;
-  left: 15rem;
-  position: absolute;
-  top: 14px;
-  border: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f172a;
   color: white;
+  position: sticky;
+
+  top: 0;
 }
-.button2 {
-  background-color: rgb(45, 48, 67);
-  color: white;
-  border-radius: 7px;
-  font-size: 20px;
-  left: 30rem;
-  position: absolute;
-  top: 14px;
-  border: none;
-  width: 90px;
+.active {
+  background-color: #1d4ed8;
 }
 
 .imgButton {
   width: 40px;
   height: 40px;
   border-radius: 7px;
+  margin-left: 1em;
   font-size: 1rem;
-  left: 1rem;
-  position: absolute;
-  top: 6px;
   border: none;
   border-radius: 50%;
 }
-.button1:hover,
-.button2:hover,
-.imgButton:hover {
-  font-size: 1.2rem;
-  border-radius: 14px; /* Un radio más grande para un efecto de iluminación más pronunciado */
-  transition: all 0.3s ease; /* Agregar una transición suave de 0.3 segundos */
-  box-shadow: 0 0 20px rgb(132, 130, 130); /* Agregar una sombra para enfatizar el efecto */
-  cursor: pointer;
-  font-family: cursive;
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.form {
+  margin-right: 10em;
+}
+.home {
+  margin-right: 10em;
+}
+nav ul li a:not(.active):hover {
+  background-color: #172554;
+}
+
+nav .menu {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+nav .menu span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  nav .menu {
+    display: flex;
+  }
+  ul {
+    padding: 0px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+  nav ul.open {
+    display: flex;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul li {
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul li a {
+    margin: 0.2rem 0.5rem;
+  }
 }
