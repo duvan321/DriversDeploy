@@ -3,7 +3,7 @@ const validation = ({
   lastName,
   birthDate,
   nationality,
-  image,
+
   description,
   teams,
 }) => {
@@ -39,13 +39,13 @@ const validation = ({
   } else if (description.length < 50) {
     errors.d1 = "debe tener mas de 50 caracteres";
   }
-  const imageRegex =
-    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-  if (image === "") {
-    errors.image = "La URL de la imagen no debe estar vacía";
-  } else if (!imageRegex.test(image)) {
-    errors.i1 = "La URL de la imagen no es válida";
-  }
+  // const imageRegex =
+  //   /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+  // if (image === "") {
+  //   errors.image = "La URL de la imagen no debe estar vacía";
+  // } else if (!imageRegex.test(image)) {
+  //   errors.i1 = "La URL de la imagen no es válida";
+  // }
   if (teams.length === 0) {
     errors.teams = "Debes seleccionar al menos un equipo";
   } else {

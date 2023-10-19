@@ -21,7 +21,7 @@ const Form = () => {
     lastName: "El Apellido no debe estar vacio",
     birthDate: "La fecha de nacimiento no debe estar vacía",
     nationality: "La nacionalidad no debe estar vacia",
-    image: "La URL de la imagen no debe estar vacía",
+    // image: "La URL de la imagen no debe estar vacía",
     description: "La descripcion no  debe estar vacia",
     teams: "Deves selecionar al menos un equipo",
   });
@@ -166,13 +166,13 @@ const Form = () => {
           className={stayle.input}
           type="text"
         />
-        <div className={stayle.danger}>
+        {/* <div className={stayle.danger}>
           {errors.image ? (
             <p>{errors.image}</p>
           ) : errors.i1 ? (
             <p>{errors.i1}</p>
           ) : null}
-        </div>
+        </div> */}
         <label className={stayle.label} htmlFor="">
           description
         </label>
