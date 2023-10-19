@@ -7,8 +7,15 @@
   margin-bottom: 20px;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
 }
 .cardImg img {
   width: 100%;
   height: 300px;
+}
+.x {
+  position: absolute;
+  right: 0;
+  color: red;
+  cursor: pointer;
 }

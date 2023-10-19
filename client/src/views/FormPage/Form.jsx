@@ -3,10 +3,11 @@ import stayle from "../FormPage/Form.module.css";
 import validation from "../../views/validation/validation";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeamsAll, posDrivers } from "../../redux/action";
-
+import { useNavigate } from "react-router-dom";
 const Form = () => {
   const allDriver = useSelector((state) => state.Teams);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",

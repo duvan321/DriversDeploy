@@ -11,17 +11,22 @@ import { useState, useEffect } from "react";
 import Card from "../Card/card";
 import stayle from "../cardComponent/CardComponen.module.css";
 import Page from "../pages/Pages";
-
+import { eliminarDrivers, getDrivers } from "../../redux/action";
 const CardComponent = () => {
   const cards = useSelector((state) => state.copyDriver);
   const teams = useSelector((state) => state.Teams);
   const dispatch = useDispatch();
+  const eliminar = async (id) => {
+    await dispatch(eliminarDrivers(id));
+    dispatch(getDrivers());
+  };
   const [page, setPage] = useState(1);
   const [byPage, setByPage] = useState(9);
   const maximo = cards.length / byPage;
   const handleOrden = (e) => {
     dispatch(ordenDriver(e.target.value));
   };
+
   const handleOrdenBirday = (e) => {
     dispatch(ordenDriverDod(e.target.value));
   };
@@ -36,6 +41,7 @@ const CardComponent = () => {
   };
 
   useEffect(() => {
+    dispatch(getDrivers());
     dispatch(getTeamsAll());
   }, []);
   return (
@@ -74,23 +80,34 @@ const CardComponent = () => {
       </select> */}
 
       <div className={stayle.cards}>
-        {cards
-          .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
-          .map((driver) => {
-            return (
-              <Card
-                key={driver.id}
-                id={driver.id}
-                firstName={driver.firstName}
-                lastName={driver.lastName}
-                description={driver.description}
-                image={driver.image}
-                nationality={driver.nationality}
-                birthDate={driver.birthDate}
-                team={driver.team}
-              />
-            );
-          })}
+        {Array.isArray(cards)
+          ? cards.slice((page - 1) * byPage, (page - 1) * byPage + byPage).map(
+              ({
+                id,
+                firstName,
+                birthDate,
+                image,
+                team,
+                description,
+                nationality,
+
+                lastName,
+              }) => (
+                <Card
+                  key={id}
+                  id={id}
+                  firstName={firstName}
+                  lastName={lastName}
+                  description={description}
+                  image={image}
+                  nationality={nationality}
+                  birthDate={birthDate}
+                  team={team}
+                  eliminar={eliminar}
+                />
+              )
+            )
+          : null}
       </div>
       {!cards.length && (
         <div className={stayle.nameNoEnc}>

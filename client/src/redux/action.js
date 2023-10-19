@@ -58,7 +58,31 @@ export const posDrivers = (formData) => {
     }
   };
 };
-
+export const eliminarDrivers = (id) => {
+  return async (dispatch) => {
+    try {
+      // Realiza la eliminación del archivo en el servidor
+      await axios.delete(`/drivers/${id}`);
+      // Después de eliminar con éxito, obtén nuevamente la lista actualizada
+      // Esto actualiza el estado con la lista actualizada
+      Swal.fire({
+        title: "Exito",
+        text: "Conductor eliminado",
+        icon: "success",
+      });
+      dispatch({
+        type: "REMOVE_DRIVERS",
+        id,
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Este conductor no se puede eliminar",
+        text: "Solo puedes eliminaar los creados",
+        icon: "error",
+      });
+    }
+  };
+};
 export const filTrarTeams = (ordenTeams) => {
   return function (dispatch) {
     try {

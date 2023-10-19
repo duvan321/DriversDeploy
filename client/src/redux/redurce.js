@@ -31,6 +31,10 @@ const redurce = (state = initialState, action) => {
       };
     case SEARCH_DRIVERS_SUCCESS:
       return { ...state, Driver: action.payload, copyDriver: action.payload };
+    case "REMOVE_DRIVERS":
+      return {
+        ...state,
+      };
 
     case GET_ALL_API_BD:
       return {
