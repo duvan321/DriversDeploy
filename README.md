@@ -1,4 +1,4 @@
-<h1>Proyecto individual del Bootcamp Henry<h1>
+<h1>Proyecto individual del bootcamp Henry<h1>
 <img src="./img/Captura de pantalla (30).png" alt="" style="margin-top: 30px; width:100%" />
 
  <img src="./img/Captura de pantalla (31).png" alt="" style="margin-top: 30px; width:100%" />
