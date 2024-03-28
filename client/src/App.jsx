@@ -3,7 +3,7 @@ import { Detail, Form, Lading, HomePage } from "./views";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import axios from "axios";
-axios.defaults.baseURL = "https://driversdeploy-production.up.railway.app/";
+axios.defaults.baseURL = "https://driverb-9hhoa8y09-duvan321.vercel.app/";
 function App() {
   const location = useLocation();
 
